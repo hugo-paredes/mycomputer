@@ -24,7 +24,7 @@
     type: bool
     value: true
     state: present
-  notify: killall Fifindernder
+  notify: killall finder
 
 - name: Disables warning when changing a file extension.
   community.general.osx_defaults:
@@ -32,5 +32,104 @@
     key: FXEnableExtensionChangeWarning
     type: bool
     value: false
+    state: present
+  notify: killall finder
+
+- name: Sets the default location when saving files, icloud (true) or local (false).
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: NSDocumentSaveNewDocumentsToCloud
+    type: bool
+    value: false
+    state: present
+  notify: killall finder
+
+- name: Shows icons for external drives on the desktop.
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: ShowExternalHardDrivesOnDesktop
+    type: bool
+    value: true
+    state: present
+  notify: killall finder
+
+- name: Show folders before files.
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: _FXSortFoldersFirst
+    type: bool
+    value: true
+    state: present
+  notify: killall finder
+
+- name: Show Full Path in Finder Title.
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: _FXShowPosixPathInTitle
+    type: bool
+    value: true
+    state: present
+  notify: killall finder
+
+- name: Set search scope, This Mac = 'SCev', Current Folder = 'SCcf', Previous Scope = 'SCsp'.
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: FXDefaultSearchScope
+    type: string
+    value: SCcf
+    state: present
+  notify: killall finder
+
+- name: Allow text selection in Quick Look.
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: QLEnableTextSelection
+    type: bool
+    value: true
+    state: present
+  notify: killall finder
+
+- name: Show icons for servers on the desktop.
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: ShowMountedServersOnDesktop
+    type: bool
+    value: true
+    state: present
+  notify: killall finder
+
+- name: Show icons for removable media on the desktop.
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: ShowRemovableMediaOnDesktop
+    type: bool
+    value: true
+    state: present
+  notify: killall finder
+
+- name: Show path in path bar.
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: ShowPathbar
+    type: bool
+    value: true
+    state: present
+  notify: killall finder
+
+- name: Show status bar in Finder.
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: ShowStatusBar
+    type: bool
+    value: true
+    state: present
+  notify: killall finder
+
+- name: Warning before emptying the Trash.
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: WarnOnEmptyTrash
+    type: bool
+    value: true
     state: present
   notify: killall finder
