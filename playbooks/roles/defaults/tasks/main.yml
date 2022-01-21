@@ -1,0 +1,36 @@
+---
+- name: Set Dock orientation to the "{{ dock_orientation }}".
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: orientation
+    type: string
+    value: left
+    state: present
+  notify: killall dock
+
+- name: Set Dock items size to "{{ dock_item_size }}".
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: tilesize
+    type: float
+    value: "{{ dock_item_size }}"
+    state: present
+  notify: killall dock
+
+- name: Show file extensions for all files.
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleShowAllExtensions
+    type: bool
+    value: true
+    state: present
+  notify: killall Fifindernder
+
+- name: Disables warning when changing a file extension.
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: FXEnableExtensionChangeWarning
+    type: bool
+    value: false
+    state: present
+  notify: killall finder

@@ -1,0 +1,30 @@
+---
+formulae:
+  - ansible
+  - docker
+  - git
+  - neovim
+  - wget
+
+casks:
+  - 1password
+  - alfred
+  - appcleaner
+  - dotnet-sdk
+  - elmedia-player
+  - garmin-express
+  - google-chrome
+  - hiddenbar
+  - iterm2
+  - itsycal
+  - lens
+  - microsoft-auto-update
+  - microsoft-office
+  - miniconda
+  - nordvpn
+  - spotify
+  - telegram
+  - topnotch
+  - utm
+  - visual-studio-code
+  - whatsapp

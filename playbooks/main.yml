@@ -1,0 +1,35 @@
+---
+- name: Provision my Machintosh
+  hosts: all
+  connection: local
+
+  vars_files:
+    - defaults/main.yml
+    - vars/defaults.yml
+    - vars/brew.yml
+
+  roles:
+    - defaults
+    - brew_apps
+
+  tasks:
+    - name: Updates git global configuration and sets the `user.name` option.
+      community.general.git_config:
+        name: user.name
+        scope: global
+        value: "{{ git_config_username }}"
+    - name: Updates git global configuration and sets the `user.email` option.
+      community.general.git_config:
+        name: user.email
+        scope: global
+        value: "{{ git_config_email }}"
+
+    - name: Installs VS Code extensions.
+      command:
+        cmd: "code --install-extension {{ item }}"
+      loop: "{{ vscode_extensions }}"
+      register: is_installed
+      changed_when: '"is already installed." not in is_installed.stdout'
+
+
+# https://apps.apple.com/pt/app/istat-menus/id1319778037?l=en&mt=12
