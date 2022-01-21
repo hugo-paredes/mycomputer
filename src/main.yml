@@ -1,0 +1,59 @@
+---
+- name: Provision my Machintosh
+  hosts: all
+  connection: local
+  # become: true
+
+  handlers:
+    - name: killall dock
+      command: killall Dock
+
+    - name: killall finder
+      command: killall Finder
+
+  tasks:
+    - name: Set Dock orientation.
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: orientation
+        type: string
+        value: left
+        state: present
+      notify: killall dock
+
+    - name: Set Dock items size.
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: tilesize
+        type: float
+        value: 36
+        state: present
+      notify: killall dock
+
+    - name: Set Dock items size.
+      community.general.osx_defaults:
+        domain: NSGlobalDomain
+        key: AppleShowAllExtensions
+        type: bool
+        value: true
+        state: present
+      notify: killall Fifindernder
+
+    - name: Set Dock items size.
+      community.general.osx_defaults:
+        domain: com.apple.finder
+        key: FXEnableExtensionChangeWarning
+        type: bool
+        value: false
+        state: present
+      notify: killall finder
+
+# Set dock in the left
+# defaults write com.apple.dock "orientation" -string "left" && killall Dock
+# Set dock size
+# defaults write com.apple.dock "tilesize" -int "36" && killall Dock
+
+# Show file extenstions
+# defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true" && killall Finder
+# Do not display warning message when changing file extensions
+# defaults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "false" && killall Finder
