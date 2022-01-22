@@ -8,6 +8,10 @@
     - vars/defaults.yml
     - vars/applications.yml
 
+  handlers:
+  - name: restart zsh
+    command: exec zsh
+
   roles:
     - defaults
     - applications
@@ -51,3 +55,21 @@
           file:
             path: ~/install_ohmyzsh.sh
             state: absent
+
+    - name: Installs powerlevel10k theme for oh-my-zsh.
+      block:
+        - name: Clones the Git repository.
+          git:
+            repo: 'https://github.com/romkatv/powerlevel10k.git'
+            dest: ~/powerlevel10k
+            depth: 1
+            version: master
+        - name: Adds the theme to the .zshrc file
+          lineinfile:
+            path: ~/.zshrc
+            regexp: '^SELINUX='
+            line: source ~/powerlevel10k/powerlevel10k.zsh-theme
+            state: present
+            insertafter: EOF
+          notify: restart zsh
+
