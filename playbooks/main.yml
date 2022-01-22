@@ -6,13 +6,17 @@
   vars_files:
     - defaults/main.yml
     - vars/defaults.yml
-    - vars/brew.yml
+    - vars/applications.yml
 
   roles:
     - defaults
-    - brew_apps
+    - applications
 
   tasks:
+
+    # #################################
+    # Git config
+    # #################################
     - name: Updates git global configuration and sets the `user.name` option.
       community.general.git_config:
         name: user.name
@@ -24,12 +28,26 @@
         scope: global
         value: "{{ git_config_email }}"
 
-    - name: Installs VS Code extensions.
-      command:
-        cmd: "code --install-extension {{ item }}"
-      loop: "{{ vscode_extensions }}"
-      register: is_installed
-      changed_when: '"is already installed." not in is_installed.stdout'
-
-
-# https://apps.apple.com/pt/app/istat-menus/id1319778037?l=en&mt=12
+    # #################################
+    # Configuration
+    # #################################
+    - name: Installs oh-my-zsh shell.
+      block:
+        - name: Checks if the `/Users/hugo/.oh-my-zsh` file already exists.
+          stat:
+            path: /Users/hugo/.oh-my-zsh
+          register: ohmyzsh
+        - name: Downloads oh-my-zsh installation script.
+          get_url:
+            url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+            dest: ~/install_ohmyzsh.sh
+            mode: 0711
+          when: not ohmyzsh.stat.exists
+        - name: Executes the oh-my-zsh installation script.
+          command:
+            cmd: ~/install_ohmyzsh.sh
+            creates: /Users/hugo/.oh-my-zsh
+        - name: Deletes the installation script.
+          file:
+            path: ~/install_ohmyzsh.sh
+            state: absent

@@ -1,6 +1,137 @@
 ---
-dock_orientation: left
-dock_item_size: 36
+defaults_values:
+  - domain: com.apple.dock
+    key: orientation
+    type: string
+    value: left
+    state: present
+    notify: killall dock
+    description: Set Dock orientation.
 
-preferences:
-  - 
+  - domain: com.apple.dock
+    key: tilesize
+    type: float
+    value: 36
+    state: present
+    notify: killall dock
+    description: Set Dock items size.
+
+  - domain: com.apple.dock
+    key: show-recents
+    type: bool
+    value: false
+    state: present
+    notify: killall dock
+    description: Shows/hides recent items in the Dock.
+
+  - domain: NSGlobal- domain
+    key: AppleShowAllExtensions
+    type: bool
+    value: true
+    state: present
+    notify: killall finder
+    description: Show file extensions for all files.
+
+  - domain: com.apple.finder
+    key: FXEnableExtensionChangeWarning
+    type: bool
+    value: false
+    state: present
+    notify: killall finder
+    description: Disables warning when changing a file extension.
+
+  - domain: NSGlobal- domain
+    key: NSDocumentSaveNewDocumentsToCloud
+    type: bool
+    value: false
+    state: present
+    notify: killall finder
+    description: Sets the default location when saving files, icloud (true) or local (false).
+
+  - domain: com.apple.finder
+    key: ShowExternalHardDrivesOnDesktop
+    type: bool
+    value: true
+    state: present
+    notify: killall finder
+    description: Shows icons for external drives on the desktop.
+
+  - domain: com.apple.finder
+    key: _FXSortFoldersFirst
+    type: bool
+    value: true
+    state: present
+    notify: killall finder
+    description: Show folders before files.
+
+  - domain: com.apple.finder
+    key: _FXShowPosixPathInTitle
+    type: bool
+    value: true
+    state: present
+    notify: killall finder
+    description: Show Full Path in Finder Title.
+
+  - domain: com.apple.finder
+    key: FXDefaultSearchScope
+    type: string
+    value: SCcf
+    state: present
+    notify: killall finder
+    description: Set search scope, This Mac = 'SCev', Current Folder = 'SCcf', Previous Scope = 'SCsp'.
+
+  - domain: com.apple.finder
+    key: QLEnableTextSelection
+    type: bool
+    value: true
+    state: present
+    notify: killall finder
+    description: Allow text selection in Quick Look.
+
+  - domain: com.apple.finder
+    key: ShowMountedServersOnDesktop
+    type: bool
+    value: true
+    state: present
+    notify: killall finder
+    description: Show icons for servers on the desktop.
+
+  - domain: com.apple.finder
+    key: ShowRemovableMediaOnDesktop
+    type: bool
+    value: true
+    state: present
+    notify: killall finder
+    description: Show icons for removable media on the desktop.
+
+  - domain: com.apple.finder
+    key: ShowPathbar
+    type: bool
+    value: true
+    state: present
+    notify: killall finder
+    description: Show path in path bar.
+
+  - domain: com.apple.finder
+    key: ShowStatusBar
+    type: bool
+    value: true
+    state: present
+    notify: killall finder
+    description: Show status bar in Finder.
+
+  - domain: com.apple.finder
+    key: WarnOnEmptyTrash
+    type: bool
+    value: true
+    state: present
+    notify: killall finder
+    description: Warning before emptying the Trash.
+
+  - domain: com.apple.finder
+    key: FXPreferredViewStyle
+    type: string
+    value: Nlsv
+    state: present
+    notify: killall finder
+    description: Set Finder view mode, Icon View = `icnv`, List View = `Nlsv`, Column View = `clmv`, Cover Flow = `Flwv`.
