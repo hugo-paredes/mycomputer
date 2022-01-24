@@ -17,6 +17,22 @@ defaults_values:
     description: Set Dock items size.
 
   - domain: com.apple.dock
+    key: mineffect
+    type: string
+    value: genie
+    state: present
+    notify: killall dock
+    description: "Updates the minimize effect when an application is minimized to the Dock. Possible values are: 'scale', 'suck' and 'genie'."
+
+  - domain: com.apple.dock
+    key: minimize-to-application
+    type: bool
+    value: false
+    state: present
+    notify: killall dock
+    description: "Setting this to `true` will minimize the application to its icon."
+
+  - domain: com.apple.dock
     key: show-recents
     type: bool
     value: false

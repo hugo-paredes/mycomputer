@@ -1,13 +1,15 @@
 ---
 - name: Make sure that the homebrew formulae are installed or updated to the latest version.
   community.general.homebrew:
-    name: "{{ formulae }}"
-    state: present
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  loop: "{{ formulae }}"
 
 - name: Make sure that the homebrew casks are installed or updated to the latest version.
   community.general.homebrew_cask:
-    name: "{{ casks }}"
-    state: present
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  loop: "{{ casks }}"
 
 - name: Make sure that all pip packages are installed or updated to the latest version.
   pip:
@@ -27,3 +29,17 @@
     id: "{{ item.id }}"
     state: present
   loop: "{{ store_apps }}"
+
+- name: Docker pos-installation steps.
+  become: yes
+  # become_user: hugo
+  block:
+    - name: Make sure the "{{ docker_group }}" already exists.
+      group:
+        name: "{{ docker_group }}"
+        state: present
+    - name: Ensures the user "" to the to the "{{ docker_group }}" group.
+      user:
+        name: hugo
+        groups: "{{ docker_group }}"
+        append: yes

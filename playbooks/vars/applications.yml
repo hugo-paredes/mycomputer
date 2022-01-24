@@ -1,36 +1,67 @@
 ---
 formulae:
-  - ansible
-  - docker
-  - git
-  - neovim
-  - wget
-  - ansible-lint
-  - yamllint
-  - mas
+  - name: ansible
+    state: present
+  - name: ansible-lint
+    state: present
+  - name: docker
+    state: absent
+  - name: docker-compose
+    state: present
+  - name: docker-compose-completion
+    state: present
+  - name: git
+    state: present
+  - name: mas
+    state: present
+  - name: neovim
+    state: present
+  - name: wget
+    state: present
+  - name: yamllint
+    state: present
 
 casks:
-  - 1password
-  - alfred
-  - appcleaner
-  - dotnet-sdk
-  - drawio
-  - elmedia-player
-  - garmin-express
-  - google-chrome
-  - iterm2
-  - itsycal
-  - lens
-  - microsoft-auto-update
-  - microsoft-office
-  - miniconda
-  - nordvpn
-  - spotify
-  - telegram
-  - topnotch
-  - utm
-  - visual-studio-code
-  - whatsapp
+  - name: 1password
+    state: present
+  - name: alfred
+    state: present
+  - name: appcleaner
+    state: present
+  - name: docker
+    state: present
+  - name: dotnet-sdk
+    state: present
+  - name: drawio
+    state: present
+  - name: elmedia-player
+    state: present
+  - name: garmin-express
+    state: present
+  - name: google-chrome
+    state: present
+  - name: iterm2
+    state: present
+  - name: itsycal
+    state: present
+  - name: lens
+    state: present
+  - name: microsoft-auto-update
+    state: present
+  - name: microsoft-office
+    state: present
+  - name: spotify
+    state: present
+  - name: telegram
+    state: present
+  - name: topnotch
+    state: present
+  - name: utm
+    state: present
+  - name: visual-studio-code
+    state: present
+  - name: whatsapp
+    state: present
 
 pip: [] 
 
@@ -87,3 +118,5 @@ store_apps:
     name: DaisyDisk
   - id: 1440147259
     name: AdGuard for Safari
+
+docker_group: docker
