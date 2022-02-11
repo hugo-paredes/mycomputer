@@ -1,0 +1,33 @@
+---
+vscode_extensions:
+  - aaron-bond.better-comments
+  - bbenoist.vagrant
+  - ceciljacob.code-plus-theme
+  - codezombiech.gitignore
+  - coolbear.systemd-unit-file
+  - DavidAnson.vscode-markdownlint
+  - donjayamanne.python-environment-manager
+  - eamodio.gitlens
+  - esbenp.prettier-vscode
+  - hediet.vscode-drawio
+  - HookyQR.beautify
+  - johnpapa.vscode-peacock
+  - luisfontes19.vscode-swissknife
+  - ms-azuretools.vscode-docker
+  - ms-dotnettools.csharp
+  - ms-python.python
+  - ms-python.vscode-pylance
+  - ms-toolsai.jupyter
+  - ms-toolsai.jupyter-keymap
+  - ms-toolsai.jupyter-renderers
+  - ms-vscode-remote.remote-ssh
+  - ms-vscode-remote.remote-ssh-edit
+  - ms-vscode.live-server
+  - PKief.material-icon-theme
+  - RandomFractalsInc.geo-data-viewer
+  - redhat.ansible
+  - redhat.vscode-yaml
+  - wesbos.theme-cobalt2
+  - xabikos.JavaScriptSnippets
+  - yzhang.markdown-all-in-one
+  - zhuangtongfa.material-theme

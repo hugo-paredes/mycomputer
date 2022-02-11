@@ -1,0 +1,6 @@
+---
+- name: Make sure that the homebrew formulae are installed or updated to the latest version.
+  community.general.homebrew:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  loop: "{{ formulae }}"

@@ -1,11 +1,15 @@
 ---
-- name: Provision my Machintosh
+- name: Provision my Machintosh - Installs all the applications and configure the system.
   hosts: all
   connection: local
 
   vars_files:
     - defaults/main.yml
     - vars/defaults.yml
+    - vars/brew_casks.yml
+    - vars/brew_formulae.yml
+    - vars/mac_store_applications.yml
+    - vars/vscode.yml
     - vars/applications.yml
 
   handlers:
@@ -13,7 +17,11 @@
     command: exec zsh
 
   roles:
-    - defaults
+    - mac_defaults
+    - brew/formulae
+    - brew/casks
+    - mac_store_applications
+    - vscode
     - applications
 
   tasks:

@@ -1,38 +1,6 @@
 ---
-- name: Make sure that the homebrew formulae are installed or updated to the latest version.
-  community.general.homebrew:
-    name: "{{ item.name }}"
-    state: "{{ item.state }}"
-  loop: "{{ formulae }}"
-
-- name: Make sure that the homebrew casks are installed or updated to the latest version.
-  community.general.homebrew_cask:
-    name: "{{ item.name }}"
-    state: "{{ item.state }}"
-  loop: "{{ casks }}"
-
-- name: Make sure that all pip packages are installed or updated to the latest version.
-  pip:
-    name: "{{ pip }}"
-    executable: pip3
-    state: present
-
-- name: Installs VS Code extensions.
-  command:
-    cmd: "code --install-extension {{ item }}"
-  loop: "{{ vscode_extensions }}"
-  register: is_installed
-  changed_when: '"is already installed." not in is_installed.stdout'
-
-- name: Installs applications from the App Store
-  community.general.mas:
-    id: "{{ item.id }}"
-    state: present
-  loop: "{{ store_apps }}"
-
 - name: Docker pos-installation steps.
   become: yes
-  # become_user: hugo
   block:
     - name: Make sure the "{{ docker_group }}" already exists.
       group:

@@ -1,0 +1,7 @@
+---
+- name: Make sure that the homebrew casks are installed or updated to the latest version.
+  community.general.homebrew_cask:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+    upgrade: yes
+  loop: "{{ casks }}"
