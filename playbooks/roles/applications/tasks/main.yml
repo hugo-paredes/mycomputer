@@ -2,7 +2,7 @@
 - name: Docker pos-installation steps.
   become: yes
   block:
-    - name: Make sure the "{{ docker_group }}" already exists.
+    - name: Make sure the group "{{ docker_group }}" already exists.
       group:
         name: "{{ docker_group }}"
         state: present

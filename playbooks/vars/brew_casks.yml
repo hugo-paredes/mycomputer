@@ -42,3 +42,5 @@ casks:
     state: present
   - name: rider
     state: present
+  - name: miniconda
+    state: present

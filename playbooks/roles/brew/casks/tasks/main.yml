@@ -1,6 +1,11 @@
 ---
-- name: Make sure that the homebrew formulae are installed or updated to the latest version.
-  community.general.homebrew:
+- name: Make sure that the homebrew casks are installed.
+  community.general.homebrew_cask:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
-  loop: "{{ formulae }}"
+    # upgrade: yes
+  loop: "{{ casks }}"
+
+- name: Upgrades all homebrew casks.
+  community.general.homebrew_cask:
+    upgrade_all: yes
