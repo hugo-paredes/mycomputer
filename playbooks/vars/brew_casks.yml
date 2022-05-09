@@ -44,3 +44,5 @@ casks:
     state: present
   - name: miniconda
     state: present
+  - name: iina
+    state: present

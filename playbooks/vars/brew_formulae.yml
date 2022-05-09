@@ -20,3 +20,5 @@ formulae:
     state: present
   - name: yamllint
     state: present
+  - name: neofetch
+    state: present
