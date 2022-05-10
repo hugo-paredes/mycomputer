@@ -9,7 +9,6 @@
     - vars/brew_casks.yml
     - vars/brew_formulae.yml
     - vars/mac_store_applications.yml
-    - vars/vscode.yml
     - vars/applications.yml
 
   handlers:
@@ -18,10 +17,10 @@
 
   roles:
     - mac_defaults
+    - brew/taps
     - brew/formulae
     - brew/casks
     - mac_store_applications
-    - vscode
     - applications
 
   tasks:
@@ -64,20 +63,20 @@
             path: ~/install_ohmyzsh.sh
             state: absent
 
-    - name: Installs powerlevel10k theme for oh-my-zsh.
-      block:
-        - name: Clones the Git repository.
-          git:
-            repo: 'https://github.com/romkatv/powerlevel10k.git'
-            dest: ~/powerlevel10k
-            depth: 1
-            version: master
-        - name: Adds the theme to the .zshrc file
-          lineinfile:
-            path: ~/.zshrc
-            regexp: '^SELINUX='
-            line: source ~/powerlevel10k/powerlevel10k.zsh-theme
-            state: present
-            insertafter: EOF
-          notify: restart zsh
+    # - name: Installs powerlevel10k theme for oh-my-zsh.
+    #   block:
+    #     - name: Clones the Git repository.
+    #       git:
+    #         repo: 'https://github.com/romkatv/powerlevel10k.git'
+    #         dest: ~/powerlevel10k
+    #         depth: 1
+    #         version: master
+    #     - name: Adds the theme to the .zshrc file
+    #       lineinfile:
+    #         path: ~/.zshrc
+    #         regexp: '^SELINUX='
+    #         line: source ~/powerlevel10k/powerlevel10k.zsh-theme
+    #         state: present
+    #         insertafter: EOF
+    #       notify: restart zsh
 

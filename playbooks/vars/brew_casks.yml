@@ -6,15 +6,9 @@ casks:
     state: present
   - name: appcleaner
     state: present
-  - name: docker
-    state: present
   - name: dotnet-sdk
     state: present
   - name: drawio
-    state: present
-  - name: elmedia-player
-    state: present
-  - name: garmin-express
     state: present
   - name: google-chrome
     state: present
@@ -45,4 +39,6 @@ casks:
   - name: miniconda
     state: present
   - name: iina
+    state: present
+  - name: font-meslo-lg-nerd-font
     state: present

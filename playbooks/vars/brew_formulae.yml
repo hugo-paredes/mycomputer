@@ -22,3 +22,5 @@ formulae:
     state: present
   - name: neofetch
     state: present
+  - name: starship
+    state: present

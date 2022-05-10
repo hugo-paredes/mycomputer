@@ -18,3 +18,7 @@ store_apps:
     name: DaisyDisk
   - id: 1440147259
     name: AdGuard for Safari
+  - id: 1136220934
+    name: Infuse 7
+  - id: 1569813296
+    name: 1Password for Safari
