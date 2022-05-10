@@ -4,8 +4,6 @@ formulae:
     state: present
   - name: ansible-lint
     state: present
-  - name: docker
-    state: absent
   - name: docker-compose
     state: present
   - name: docker-compose-completion
@@ -14,13 +12,9 @@ formulae:
     state: present
   - name: mas
     state: present
-  - name: neovim
-    state: present
   - name: wget
     state: present
   - name: yamllint
     state: present
   - name: neofetch
-    state: present
-  - name: starship
     state: present

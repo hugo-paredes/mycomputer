@@ -38,6 +38,11 @@
         name: user.email
         scope: global
         value: "{{ git_config_email }}"
+    - name: Updates git global configuration and sets the `defaultBranch` option.
+      community.general.git_config:
+        name: init.defaultBranch
+        scope: global
+        value: "main"
 
     # #################################
     # Configuration
