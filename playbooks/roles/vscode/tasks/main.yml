@@ -1,7 +1,0 @@
----
-- name: Installs VS Code extensions.
-  command:
-    cmd: "code --install-extension {{ item }}"
-  loop: "{{ vscode_extensions }}"
-  register: is_installed
-  changed_when: '"is already installed." not in is_installed.stdout'
