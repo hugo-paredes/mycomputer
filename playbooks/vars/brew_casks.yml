@@ -42,3 +42,5 @@ casks:
     state: present
   - name: font-meslo-lg-nerd-font
     state: present
+  - name: signal
+    state: present
