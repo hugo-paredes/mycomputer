@@ -50,3 +50,5 @@ casks:
     state: present
   - name: raycast
     state: present
+  - name: alt-tab
+    state: present
