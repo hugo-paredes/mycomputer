@@ -18,3 +18,5 @@ formulae:
     state: present
   - name: neofetch
     state: present
+  - name: neovim
+    state: present

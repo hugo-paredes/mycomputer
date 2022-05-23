@@ -44,3 +44,9 @@ casks:
     state: present
   - name: signal
     state: present
+  - name: powershell
+    state: present
+  - name: raspberry-pi-imager
+    state: present
+  - name: raycast
+    state: present
